@@ -1,0 +1,1236 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Formula – Climate Solution</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Climate Solution</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-model" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Model</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-model">    
+        <li>
+    <a class="dropdown-item" href="./Introduction.html">
+ <span class="dropdown-text">Introduction</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./parameters.html">
+ <span class="dropdown-text">Parameters</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./equations.html">
+ <span class="dropdown-text">Equations</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./variables.html">
+ <span class="dropdown-text">Variables</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="./timeline.html"> 
+<span class="menu-text">Timeline</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./reference.html"> 
+<span class="menu-text">Reference</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-datasets" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Datasets</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-datasets">    
+        <li>
+    <a class="dropdown-item" href="./soil.html">
+ <span class="dropdown-text">Soil Dataset</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./climate.html">
+ <span class="dropdown-text">Climate Dataset</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://github.com/ubc-litefarm-datateam/GHG-LiteFarm-MDS-Capstone"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text">Github</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#cropresiduecalculator" id="toc-cropresiduecalculator" class="nav-link active" data-scroll-target="#cropresiduecalculator">CropResidueCalculator</a></li>
+  <li><a href="#c_s-carbon-input-from-straw" id="toc-c_s-carbon-input-from-straw" class="nav-link" data-scroll-target="#c_s-carbon-input-from-straw">3. <span class="math inline">\(C_s\)</span>: Carbon Input from Straw</a></li>
+  <li><a href="#c_r-carbon-input-from-root" id="toc-c_r-carbon-input-from-root" class="nav-link" data-scroll-target="#c_r-carbon-input-from-root">4. <span class="math inline">\(C_r\)</span>: Carbon input from Root</a></li>
+  <li><a href="#c_e-carbon-input-from-exudate" id="toc-c_e-carbon-input-from-exudate" class="nav-link" data-scroll-target="#c_e-carbon-input-from-exudate">5. <span class="math inline">\(C_e\)</span>: Carbon Input from Exudate</a></li>
+  <li><a href="#grain_n" id="toc-grain_n" class="nav-link" data-scroll-target="#grain_n">6. <span class="math inline">\(Grain_N\)</span></a></li>
+  <li><a href="#straw_n" id="toc-straw_n" class="nav-link" data-scroll-target="#straw_n">7. <span class="math inline">\(Straw_N\)</span></a></li>
+  <li><a href="#root_n" id="toc-root_n" class="nav-link" data-scroll-target="#root_n">8. <span class="math inline">\(Root_N\)</span></a></li>
+  <li><a href="#exudate_n" id="toc-exudate_n" class="nav-link" data-scroll-target="#exudate_n">9. <span class="math inline">\(Exudate_N\)</span></a></li>
+  <li><a href="#aboveground-residue-nitrogen" id="toc-aboveground-residue-nitrogen" class="nav-link" data-scroll-target="#aboveground-residue-nitrogen">10. AboveGround Residue Nitrogen</a></li>
+  <li><a href="#belowground-residue-nitrogen" id="toc-belowground-residue-nitrogen" class="nav-link" data-scroll-target="#belowground-residue-nitrogen">11. BelowGround Residue Nitrogen</a></li>
+  <li><a href="#the-total-nitrogen-content-of-the-crop-residuen_crop_residues." id="toc-the-total-nitrogen-content-of-the-crop-residuen_crop_residues." class="nav-link" data-scroll-target="#the-total-nitrogen-content-of-the-crop-residuen_crop_residues.">12. The total nitrogen content of the crop residue(<span class="math inline">\(N_{crop\_residues}\)</span>).</a></li>
+  <li><a href="#carbon-input" id="toc-carbon-input" class="nav-link" data-scroll-target="#carbon-input">Carbon Input</a></li>
+  <li><a href="#emissionfactorcalculator" id="toc-emissionfactorcalculator" class="nav-link" data-scroll-target="#emissionfactorcalculator">EmissionFactorCalculator</a></li>
+  <li><a href="#calculate-base-emission-factor---due-to-ecodistrict-level-emission-factor" id="toc-calculate-base-emission-factor---due-to-ecodistrict-level-emission-factor" class="nav-link" data-scroll-target="#calculate-base-emission-factor---due-to-ecodistrict-level-emission-factor">1. Calculate Base Emission Factor - Due to Ecodistrict-level Emission Factor</a></li>
+  <li><a href="#calculate-emission-factor-adjustment-due-to-position-in-landscapetopography" id="toc-calculate-emission-factor-adjustment-due-to-position-in-landscapetopography" class="nav-link" data-scroll-target="#calculate-emission-factor-adjustment-due-to-position-in-landscapetopography">2. Calculate Emission Factor Adjustment Due to Position in Landscape/Topography</a></li>
+  <li><a href="#calculate-emission-factor-adjustment-due-to-soil-texture" id="toc-calculate-emission-factor-adjustment-due-to-soil-texture" class="nav-link" data-scroll-target="#calculate-emission-factor-adjustment-due-to-soil-texture">3. Calculate Emission Factor Adjustment Due to Soil Texture</a></li>
+  <li><a href="#emissioncalculator" id="toc-emissioncalculator" class="nav-link" data-scroll-target="#emissioncalculator">EmissionCalculator</a></li>
+  <li><a href="#calculate-the-direct-nitrogen-emission-from-crop-residue" id="toc-calculate-the-direct-nitrogen-emission-from-crop-residue" class="nav-link" data-scroll-target="#calculate-the-direct-nitrogen-emission-from-crop-residue">1. Calculate The direct nitrogen emission from crop residue</a></li>
+  <li><a href="#the-total-direct-nitrogen-emission-from-all-crop-sources" id="toc-the-total-direct-nitrogen-emission-from-all-crop-sources" class="nav-link" data-scroll-target="#the-total-direct-nitrogen-emission-from-all-crop-sources">2. The total direct nitrogen emission from all crop sources</a></li>
+  <li><a href="#convert-n₂o_n-to-n₂o" id="toc-convert-n₂o_n-to-n₂o" class="nav-link" data-scroll-target="#convert-n₂o_n-to-n₂o">3. Convert <span class="math inline">\(N₂O_N\)</span> to N₂O</a></li>
+  <li><a href="#calculate-co₂-equivalent-of-n₂o-emissions" id="toc-calculate-co₂-equivalent-of-n₂o-emissions" class="nav-link" data-scroll-target="#calculate-co₂-equivalent-of-n₂o-emissions">4. Calculate CO₂ Equivalent of N₂O Emissions</a></li>
+  <li><a href="#scientific-mode-vs-farm-mode" id="toc-scientific-mode-vs-farm-mode" class="nav-link" data-scroll-target="#scientific-mode-vs-farm-mode">Scientific mode Vs Farm mode</a></li>
+  <li><a href="#process" id="toc-process" class="nav-link" data-scroll-target="#process">Process</a></li>
+  <li><a href="#climatesoildatamanager" id="toc-climatesoildatamanager" class="nav-link" data-scroll-target="#climatesoildatamanager">ClimateSoilDataManager</a></li>
+  <li><a href="#cropparametersmanager" id="toc-cropparametersmanager" class="nav-link" data-scroll-target="#cropparametersmanager">CropParametersManager</a></li>
+  <li><a href="#question" id="toc-question" class="nav-link" data-scroll-target="#question">Question</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Formula</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="cropresiduecalculator" class="level3">
+<h3 class="anchored" data-anchor-id="cropresiduecalculator">CropResidueCalculator</h3>
+<ol type="1">
+<li><span class="math inline">\(C_p\)</span>: Above and Belowground Residue Input</li>
+</ol>
+<p><span class="math inline">\(\text{if} \quad|(S_p - 100)| &lt; 1 \times 10^{-5}\)</span> <span class="math display">\[
+C_p = [yield \times (1 - \frac{{moisture \ content}}{100})] \times {Carbon \ concentration} \quad \text{(2.1.2-6)}
+\]</span></p>
+<p>Otherwise <span class="math display">\[
+C_p = [(yield + yield \times \frac{S_p}{100}) \times (1 - \frac{{moisture \ content}}{100})] \times {Carbon \ concentration}
+\]</span></p>
+<p><strong>Holos Code Reference</strong>: <a href="https://github.com/holos-aafc/Holos/blob/21c18d94c871eaa1eaa2ab1d475eca0f0e34b35b/H.Core/Calculators/Carbon/ICBMSoilCarbonCalculator.cs#L270">GitHub - Equation 2.1.2-6</a></p>
+<p><strong>Variables</strong>:</p>
+<ul>
+<li><a href="#7-c_p-above-and-belowground-residue-input"><span class="math inline">\(C_p\)</span></a>: Plant carbon in agricultural product (<span class="math inline">\(kg ha^{-1}\)</span>)</li>
+<li><span class="math inline">\(yield\)</span>: Crop yield (<span class="math inline">\({kg} \text{ wet weight } ha^{-1}\)</span>, default provided, user override)</li>
+<li><span class="math inline">\(S_p\)</span>: Percentage of product yield returned to soil (user override)</li>
+<li><span class="math inline">\(\text{moisture content}\)</span>: Moisture content (%) of crop product <a href="https://github.com/holos-aafc/Holos/blob/main/H.Content/Resources/Table_7_Relative_Biomass_Information.csv">[Holos Table 7]</a></li>
+<li><span class="math inline">\(\text{Carbon concentration}\)</span>: C concentration of all plant parts (<span class="math inline">\(kg kg^{-1}\)</span>)</li>
+</ul>
+<ol start="2" type="1">
+<li><span class="math inline">\(C_{p\_to\_soil}\)</span>: Carbon input from product</li>
+</ol>
+<p><span class="math display">\[
+C_{{p\_to\_soil}} = C_p \times \frac{S_p}{100} \quad \text{(2.1.2-7)}
+\]</span></p>
+<p><strong>Holos Code Reference</strong>: <a href="https://github.com/holos-aafc/Holos/blob/21c18d94c871eaa1eaa2ab1d475eca0f0e34b35b/H.Core/Calculators/Carbon/ICBMSoilCarbonCalculator.cs#L307">GitHub - Equation 2.1.2-7</a></p>
+<p><strong>Variables</strong>:</p>
+<ul>
+<li><a href="#8-c_p_to_soil-carbon-input-from-product"><span class="math inline">\(C_{p\_to\_soil}\)</span></a>: Carbon input from product (<span class="math inline">\(kg ha^{-1}\)</span>)</li>
+<li><a href="#7-c_p-above-and-belowground-residue-input"><span class="math inline">\(C_p\)</span></a>: Plant C (carbon) in agricultural product (<span class="math inline">\(kg ha^{-1}\)</span>)</li>
+<li><span class="math inline">\(S_p\)</span>: Percentage of product yield returned to soil (user override)</li>
+</ul>
+</section>
+<section id="c_s-carbon-input-from-straw" class="level3">
+<h3 class="anchored" data-anchor-id="c_s-carbon-input-from-straw">3. <span class="math inline">\(C_s\)</span>: Carbon Input from Straw</h3>
+<p><span class="math display">\[
+C_s = C_p \times \frac{R_s}{R_p} \times \frac{S_s}{100} \quad \text{(2.1.2-8)}
+\]</span></p>
+<p><strong>Holos Code Reference</strong>: <a href="https://github.com/holos-aafc/Holos/blob/21c18d94c871eaa1eaa2ab1d475eca0f0e34b35b/H.Core/Calculators/Carbon/ICBMSoilCarbonCalculator.cs#L344">GitHub - Equation 2.1.2-8</a></p>
+<p><strong>Variables</strong>:</p>
+<ul>
+<li><a href="#9-c_s-carbon-input-from-straw"><span class="math inline">\(C_s\)</span></a>: C (carbon) input from straw (<span class="math inline">\(kg ha^{-1}\)</span>)</li>
+<li><a href="#7-c_p-above-and-belowground-residue-input"><span class="math inline">\(C_p\)</span></a>: Plant C (carbon) in agricultural product (<span class="math inline">\(kg ha^{-1}\)</span>)</li>
+<li><span class="math inline">\(R_s\)</span>: Relative biomass allocation coefficient for straw <a href="https://github.com/holos-aafc/Holos/blob/main/H.Content/Resources/Table_7_Relative_Biomass_Information.csv">[Holos Table 7]</a></li>
+<li><span class="math inline">\(R_p\)</span>：Relative biomass allocation coefficient for product <a href="https://github.com/holos-aafc/Holos/blob/main/H.Content/Resources/Table_7_Relative_Biomass_Information.csv">[Holos Table 7]</a></li>
+<li><span class="math inline">\(S_s\)</span>: Percentage of straw returned to soil (user override)</li>
+</ul>
+</section>
+<section id="c_r-carbon-input-from-root" class="level3">
+<h3 class="anchored" data-anchor-id="c_r-carbon-input-from-root">4. <span class="math inline">\(C_r\)</span>: Carbon input from Root</h3>
+<p><span class="math display">\[
+C_r = C_p \times \frac{R_r}{R_p} \times \frac{S_r}{100} \quad \text{(2.1.2-9)}
+\]</span></p>
+<p><strong>Holos Code Reference</strong>: <a href="https://github.com/holos-aafc/Holos/blob/21c18d94c871eaa1eaa2ab1d475eca0f0e34b35b/H.Core/Calculators/Carbon/ICBMSoilCarbonCalculator.cs#L398">GitHub - Equation 2.1.2-9</a></p>
+<p><strong>Variables</strong>:</p>
+<ul>
+<li><a href="#10-c_r-carbon-input-from-root"><span class="math inline">\(C_r\)</span></a>: C (carbon) input from roots (<span class="math inline">\(kg ha^{-1}\)</span>)</li>
+<li><a href="#7-c_p-above-and-belowground-residue-input"><span class="math inline">\(C_p\)</span></a>: Plant C (carbon) in agricultural product (<span class="math inline">\(kg ha^{-1}\)</span>)</li>
+<li><span class="math inline">\(R_r\)</span>:Relative biomass allocation coefficient for roots <a href="https://github.com/holos-aafc/Holos/blob/main/H.Content/Resources/Table_7_Relative_Biomass_Information.csv">[Holos Table 7]</a></li>
+<li><span class="math inline">\(R_p\)</span>：Relative biomass allocation coefficient for product <a href="https://github.com/holos-aafc/Holos/blob/main/H.Content/Resources/Table_7_Relative_Biomass_Information.csv">[Holos Table 7]</a></li>
+<li><span class="math inline">\(S_r\)</span>: Percentage of roots returned to soil (user override)</li>
+</ul>
+</section>
+<section id="c_e-carbon-input-from-exudate" class="level3">
+<h3 class="anchored" data-anchor-id="c_e-carbon-input-from-exudate">5. <span class="math inline">\(C_e\)</span>: Carbon Input from Exudate</h3>
+<p><span class="math display">\[
+C_e = C_p \times \frac{R_e}{R_p} \quad \text{(2.1.2-9)}
+\]</span></p>
+<p><strong>Holos Code Reference</strong>: <a href="https://github.com/holos-aafc/Holos/blob/21c18d94c871eaa1eaa2ab1d475eca0f0e34b35b/H.Core/Calculators/Carbon/ICBMSoilCarbonCalculator.cs#L398">GitHub - Equation 2.1.2-9</a></p>
+<p><strong>Variables</strong>:</p>
+<ul>
+<li><a href="#11-c_e-carbon-input-from-exudate"><span class="math inline">\(C_e\)</span></a>: C (carbon) input from extra-root material (<span class="math inline">\(kg ha^{-1}\)</span>)</li>
+<li><a href="#7-c_p-above-and-belowground-residue-input"><span class="math inline">\(C_p\)</span></a>: Plant C (carbon) in agricultural product (<span class="math inline">\(kg ha^{-1}\)</span>)</li>
+<li><span class="math inline">\(R_e\)</span>: Relative biomass allocation coefficient for extra-root material <a href="https://github.com/holos-aafc/Holos/blob/main/H.Content/Resources/Table_7_Relative_Biomass_Information.csv">[Holos Table 7]</a></li>
+<li><span class="math inline">\(R_p\)</span>: Relative biomass allocation coefficient for product <a href="https://github.com/holos-aafc/Holos/blob/main/H.Content/Resources/Table_7_Relative_Biomass_Information.csv">[Holos Table 7]</a></li>
+</ul>
+</section>
+<section id="grain_n" class="level3">
+<h3 class="anchored" data-anchor-id="grain_n">6. <span class="math inline">\(Grain_N\)</span></h3>
+<p><span class="math display">\[
+{Grain}_N = \frac{C_{p\_to\_soil}}{0.45} \times \frac{N_p}{1000}\quad \text{(2.5.6-2)}
+\]</span></p>
+<p><strong>Holos Code Reference</strong>: <a href="https://github.com/holos-aafc/Holos/blob/21c18d94c871eaa1eaa2ab1d475eca0f0e34b35b/H.Core/Calculators/Nitrogen/N2OEmissionFactorCalculator.cs#L561">Holos GitHub - Equation 2.5.6-2</a></p>
+<p><strong>Variables</strong>:</p>
+<ul>
+<li><a href="#3-grain_n"><span class="math inline">\({Grain}_N\)</span></a>: Nitrogen content of the grain returned to the soil (<span class="math inline">\(kg N ha^{-1}\)</span>)</li>
+<li><a href="#8-carbon-input-from-product"><span class="math inline">\(C_{p\_to\_soil}\)</span></a>: Carbon input from product (<span class="math inline">\(kg ha^{-1}\)</span>)</li>
+<li><span class="math inline">\(N_p\)</span>: N concentration in the product (<span class="math inline">\(kg kg^{-1}\)</span>) <a href="https://github.com/holos-aafc/Holos/blob/main/H.Content/Resources/Table_7_Relative_Biomass_Information.csv">[Holos Table 7]</a></li>
+</ul>
+</section>
+<section id="straw_n" class="level3">
+<h3 class="anchored" data-anchor-id="straw_n">7. <span class="math inline">\(Straw_N\)</span></h3>
+<p><span class="math display">\[
+{Straw}_N = \frac{C_s}{0.45} \times \frac{N_s}{1000} \quad \text{(2.5.6-3)}
+\]</span></p>
+<p><strong>Holos Code Reference</strong>: <a href="https://github.com/holos-aafc/Holos/blob/21c18d94c871eaa1eaa2ab1d475eca0f0e34b35b/H.Core/Calculators/Nitrogen/N2OEmissionFactorCalculator.cs#L575">GitHub - Equation 2.5.6-3</a></p>
+<p><strong>Variables</strong>:</p>
+<ul>
+<li><a href="#4-straw_n"><span class="math inline">\({Straw}_N\)</span></a>: Nitrogen content of the straw returned to the soil (<span class="math inline">\(kg N ha^{-1}\)</span>)</li>
+<li><a href="#9-c_s-carbon-input-from-straw"><span class="math inline">\(C_s\)</span></a>: Carbon input from straw (<span class="math inline">\(kg ha^{-1}\)</span>)</li>
+<li><span class="math inline">\(N_s\)</span>: N concentration in the straw (<span class="math inline">\(kg kg^{-1}\)</span>) <a href="https://github.com/holos-aafc/Holos/blob/main/H.Content/Resources/Table_7_Relative_Biomass_Information.csv">[Holos Table 7]</a></li>
+</ul>
+</section>
+<section id="root_n" class="level3">
+<h3 class="anchored" data-anchor-id="root_n">8. <span class="math inline">\(Root_N\)</span></h3>
+<p><span class="math display">\[
+{Root}_N = \frac{C_r}{0.45} \times \frac{N_r}{1000}\quad \text{(2.5.6-4)}
+\]</span></p>
+<p><strong>Holos Code Reference</strong>: <a href="https://github.com/holos-aafc/Holos/blob/21c18d94c871eaa1eaa2ab1d475eca0f0e34b35b/H.Core/Calculators/Nitrogen/N2OEmissionFactorCalculator.cs#L589">GitHub - Equation 2.5.6-4</a></p>
+<p><strong>Variables</strong>:</p>
+<ul>
+<li><a href="#5-root_n"><span class="math inline">\({Root}_N\)</span></a>: Nitrogen content of the root returned to the soil (<span class="math inline">\(kg N ha^{-1}\)</span>)</li>
+<li><a href="#10-c_r-carbon-input-from-root"><span class="math inline">\(C_r\)</span></a>: Carbon input from roots (<span class="math inline">\(kg ha^{-1}\)</span>)</li>
+<li><span class="math inline">\(N_r\)</span>: N concentration in the roots (<span class="math inline">\(kg kg^{-1}\)</span>) <a href="https://github.com/holos-aafc/Holos/blob/main/H.Content/Resources/Table_7_Relative_Biomass_Information.csv">[Holos Table 7]</a></li>
+</ul>
+</section>
+<section id="exudate_n" class="level3">
+<h3 class="anchored" data-anchor-id="exudate_n">9. <span class="math inline">\(Exudate_N\)</span></h3>
+<p><span class="math display">\[
+{Exudate}_N = \frac{C_e}{0.45} \times \frac{N_e}{1000} \quad \text{(2.5.6-5)}
+\]</span></p>
+<p><strong>Holos Code Reference</strong>: <a href="https://github.com/holos-aafc/Holos/blob/21c18d94c871eaa1eaa2ab1d475eca0f0e34b35b/H.Core/Calculators/Nitrogen/N2OEmissionFactorCalculator.cs#L603">GitHub - Equation 2.5.6-5</a></p>
+<p><strong>Variables</strong>:</p>
+<ul>
+<li><a href="#6-exudate_n"><span class="math inline">\(\text{Exudate}_N\)</span></a>: Nitrogen content of the exudates returned to the soil (<span class="math inline">\(kg N ha^{-1}\)</span>)</li>
+<li><a href="#11-c_e-carbon-input-from-exudate"><span class="math inline">\(C_e\)</span></a>: Carbon input from extra-root material (<span class="math inline">\(kg ha^{-1}\)</span>)</li>
+<li><span class="math inline">\(N_e\)</span>: N concentration in the extra root material (<span class="math inline">\(kg kg^{-1}\)</span>) <a href="https://github.com/holos-aafc/Holos/blob/main/H.Content/Resources/Table_7_Relative_Biomass_Information.csv">[Holos Table 7]</a></li>
+</ul>
+</section>
+<section id="aboveground-residue-nitrogen" class="level3">
+<h3 class="anchored" data-anchor-id="aboveground-residue-nitrogen">10. AboveGround Residue Nitrogen</h3>
+<p>For Annual and Perennial Plants,</p>
+<p><span class="math display">\[
+AboveGround_{residue\_N} = [{Grain_N} + {Straw_N}] \quad \text{(2.5.6-6)}
+\]</span> For Root Plant,</p>
+<p><span class="math display">\[
+AboveGround_{residue\_N} = {Straw_N} \quad \text{(2.5.6-6)}
+\]</span> For Cover and Silage Plant,</p>
+<p><span class="math display">\[
+AboveGround_{residue\_N} = {Grain_N} \quad \text{(2.5.6-6)}
+\]</span></p>
+<p><strong>Holos Code Reference</strong>: <a href="https://github.com/holos-aafc/Holos/blob/21c18d94c871eaa1eaa2ab1d475eca0f0e34b35b/H.Core/Calculators/Nitrogen/N2OEmissionFactorCalculator.cs#L617">Holos GitHub - Equation 2.5.6-6</a></p>
+<p><strong>Variables</strong>:</p>
+<ul>
+<li><a href="#1-aboveground-residue-nitrogen"><span class="math inline">\(AboveGround_{residue\_N}\)</span></a>: Nitrogen in above-ground crop residues (<span class="math inline">\(kg N\)</span>)</li>
+<li><a href="#6-grain_n"><span class="math inline">\({Grain_N}\)</span></a>: Nitrogen content of the grain returned to the soil (<span class="math inline">\(kg N ha^{-1}\)</span>)</li>
+<li><a href="#7-straw_n"><span class="math inline">\({Straw_N}\)</span></a>: Nitrogen content of the straw returned to the soil (<span class="math inline">\(kg N ha^{-1}\)</span>)</li>
+</ul>
+</section>
+<section id="belowground-residue-nitrogen" class="level3">
+<h3 class="anchored" data-anchor-id="belowground-residue-nitrogen">11. BelowGround Residue Nitrogen</h3>
+<p>For annual plants:</p>
+<p><span class="math display">\[
+BelowGround_{{residue_N}} = [{Root_N} + {Exudate_N}] \quad \text{(2.5.6-7)}
+\]</span></p>
+<p><strong>Holos Code Reference</strong>: <a href="https://github.com/holos-aafc/Holos/blob/21c18d94c871eaa1eaa2ab1d475eca0f0e34b35b/H.Core/Calculators/Nitrogen/N2OEmissionFactorCalculator.cs#L679">Holos GitHub - Equation 2.5.6-7</a></p>
+<p>For perennial plants:</p>
+<p><span class="math display">\[
+BelowGround_{residue_N} = [\frac{S_r}{100} \times {Root}_N] + {Exudate_N} \quad \text{(2.5.6-8)}
+\]</span></p>
+<p>For root plant,</p>
+<p><span class="math display">\[
+BelowGround_{residue_N} = {Grian_N} + {Exudate_N} \quad \text{(2.5.6-8)}
+\]</span></p>
+<p>For cover and silage plant,</p>
+<p><span class="math display">\[
+BelowGround_{residue_N} = {Root_N} + {Exudate_N} \quad \text{(2.5.6-8)}
+\]</span></p>
+<p><strong>Holos Code Reference</strong>: <a href="https://github.com/holos-aafc/Holos/blob/21c18d94c871eaa1eaa2ab1d475eca0f0e34b35b/H.Core/Calculators/Nitrogen/N2OEmissionFactorCalculator.cs#L685">Holos GitHub - Equation 2.5.6-8</a></p>
+<p><strong>Variables</strong>:</p>
+<ul>
+<li><a href="#2-belowground-residue-nitrogen"><span class="math inline">\(BelowGround_{residue\_N}\)</span></a>: Belowground residue nitrogen (<span class="math inline">\(kg N ha^{-1}\)</span>)</li>
+<li><a href="#8-root_n"><span class="math inline">\({Root_N}\)</span></a>: Nitrogen content of the root returned to the soil (<span class="math inline">\(kg N ha^{-1}\)</span>)</li>
+<li><a href="#9-exudate_n"><span class="math inline">\({Exudate_N}\)</span></a>: Nitrogen content of the exudates returned to the soil (<span class="math inline">\(kg N ha^{-1}\)</span>)</li>
+<li><span class="math inline">\(S_r\)</span>: Root turnover fraction</li>
+</ul>
+</section>
+<section id="the-total-nitrogen-content-of-the-crop-residuen_crop_residues." class="level3">
+<h3 class="anchored" data-anchor-id="the-total-nitrogen-content-of-the-crop-residuen_crop_residues.">12. The total nitrogen content of the crop residue(<span class="math inline">\(N_{crop\_residues}\)</span>).</h3>
+<p><span class="math display">\[
+N_{CropResidues} = (AboveGround_{residue\_N} + BelowGround_{residue\_N}) \times {area} \quad \text{(2.5.6-9)}
+\]</span></p>
+<p><strong>Variables</strong>:</p>
+<ul>
+<li><span class="math inline">\(N_{CropResidues}\)</span>: resulting from crop residues and N mineralization</li>
+<li><a href="#1-aboveground-residue-nitrogen"><span class="math inline">\(AboveGround_{residue\_N}\)</span></a>: Aboveground residue nitrogen (<span class="math inline">\(kg N ha^{-1}\)</span>)</li>
+<li><a href="#2-belowground-residue-nitrogen"><span class="math inline">\(BelowGround_{residue\_N}\)</span></a>: Belowground residue nitrogen <span class="math inline">\(kg N ha^{-1}\)</span></li>
+<li><span class="math inline">\(area\)</span>: Area of crop (<span class="math inline">\(ha\)</span>)</li>
+</ul>
+</section>
+<section id="carbon-input" class="level3">
+<h3 class="anchored" data-anchor-id="carbon-input">Carbon Input</h3>
+<p><strong>Above ground carbon input</strong></p>
+<p>For root plants:</p>
+<p><span class="math display">\[
+AboveGround_{carboninput} = c_s
+\]</span></p>
+<p>others plant, <span class="math display">\[
+AboveGround_{carboninput} = C_{p\_to\_soil} + C_s
+\]</span></p>
+<p><strong>Below ground carbon input</strong></p>
+<p>For root plants:</p>
+<p><span class="math display">\[
+BelowGround_{carboninput} = C_{p\_to\_soil} + C_e
+\]</span></p>
+<p>others plant, <span class="math display">\[
+AboveGround_{carboninput} = C_r + C_e
+\]</span></p>
+</section>
+<section id="emissionfactorcalculator" class="level3">
+<h3 class="anchored" data-anchor-id="emissionfactorcalculator">EmissionFactorCalculator</h3>
+</section>
+<section id="calculate-base-emission-factor---due-to-ecodistrict-level-emission-factor" class="level3">
+<h3 class="anchored" data-anchor-id="calculate-base-emission-factor---due-to-ecodistrict-level-emission-factor">1. Calculate Base Emission Factor - Due to Ecodistrict-level Emission Factor</h3>
+<p>For humid environment:<span class="math inline">\(P &gt; PE\)</span></p>
+<p><span class="math display">\[
+EF_{CT} = \exp^{0.00558 \times P - 7.7} \quad(2.5.1-1)
+\]</span> For dry environment <span class="math inline">\(PE \geq P\)</span></p>
+<p><span class="math display">\[
+EF_{CT}= \exp^{0.00558 \times PE - 7.7}\quad(2.5.1-2)
+\]</span></p>
+<p><strong>Holos Code Reference</strong>: <a href="https://github.com/holos-aafc/Holos/blob/6f24e78c7bd46ae35848906933475f077562cd0d/H.Core/Calculators/Nitrogen/N2OEmissionFactorCalculator.cs#L880">GitHub - Equation 2.5.1</a></p>
+<p><strong>Variables</strong>:</p>
+<ul>
+<li><span class="math inline">\(EF_{CT}\)</span>: Ecodistrict-level emission factor (<span class="math inline">\(kg \, N_2O\text{-}N \, (kg \, N)^{-1}\)</span>)</li>
+<li><span class="math inline">\(P\)</span>: Annual growing season precipitation (May – October)(mm)</li>
+<li><span class="math inline">\(PE\)</span>: Growing season potential evapotranspiration, by ecodistrict (May – October) (mm)</li>
+</ul>
+</section>
+<section id="calculate-emission-factor-adjustment-due-to-position-in-landscapetopography" class="level3">
+<h3 class="anchored" data-anchor-id="calculate-emission-factor-adjustment-due-to-position-in-landscapetopography">2. Calculate Emission Factor Adjustment Due to Position in Landscape/Topography</h3>
+<p>For humid environments <span class="math inline">\(P &gt; PE\)</span> :</p>
+<p><span class="math display">\[
+EF_{Topo} = EF_{CT} \quad(2.5.2-1)
+\]</span></p>
+<p>For dry environment <span class="math inline">\(PE \geq P\)</span>:</p>
+<ul>
+<li>For non-irrigated sites:</li>
+</ul>
+<p><span class="math display">\[
+EF_{Topo} = (EF\\\_CT_{P &lt; PE}\times FR_{Topo}) + [EF\\\_CT_{P&gt;PE} \times (1 - FR_{Topo})] \quad(2.5.2-2)
+\]</span></p>
+<p>For irrigated sites, the assumption is that the irrigation amount is equal to PE - P, thus making P = PE,</p>
+<p><span class="math display">\[
+EF_{Topo} = EF_{CT} \quad (2.5.2-3)
+\]</span></p>
+<p><strong>Holos Code Reference</strong>: <a href="https://github.com/holos-aafc/Holos/blob/6f24e78c7bd46ae35848906933475f077562cd0d/H.Core/Calculators/Nitrogen/N2OEmissionFactorCalculator.cs#L381">GitHub - Equation 2.5.2</a></p>
+<p><strong>Variables</strong>:</p>
+<ul>
+<li><span class="math inline">\(EF_{Topo}\)</span>: N2O emission factor adjusted due to position in landscape and moisture regime (<span class="math inline">\(kg \, N_2O\text{-}N\)</span>)</li>
+<li><span class="math inline">\(FR_{Topo}\)</span>: Fraction of land occupied by lower portions of the landscape</li>
+</ul>
+</section>
+<section id="calculate-emission-factor-adjustment-due-to-soil-texture" class="level3">
+<h3 class="anchored" data-anchor-id="calculate-emission-factor-adjustment-due-to-soil-texture">3. Calculate Emission Factor Adjustment Due to Soil Texture</h3>
+<p><span class="math display">\[
+EF_{Base} = (EF_{Topo} \times RF\_TX) \times \frac{1}{0.645} \quad (2.5.3-2)
+\]</span></p>
+<p><span class="math display">\[
+EF = EF_{Base} * RF\_NS * RF\_Till *RF\_CS * RF\_AM
+\]</span></p>
+<p><strong>Holos Code Reference</strong>: <a href="https://github.com/holos-aafc/Holos/blob/6f24e78c7bd46ae35848906933475f077562cd0d/H.Core/Calculators/Nitrogen/N2OEmissionFactorCalculator.cs#L451">GitHub - Equation 2.5.3-2</a></p>
+<p><strong>Variables</strong>:</p>
+<ul>
+<li><span class="math inline">\(RF\_TX\)</span>: Weighted modifier which provides a correction of the <span class="math inline">\(EF\_Topo\)</span> in ecodistrict based on the soil texture.</li>
+<li><span class="math inline">\(EF\_Base\)</span>: A function of the three factors that create a base ecodistrict-specific value that accounts for the climatic, topographic, and edaphic characteristics of the spatial unit for lands.</li>
+<li><span class="math inline">\(\frac{1}{0.645}\)</span>: Fraction of growing season emissions of total annual emissions (Pelster et al.&nbsp;2022, in prep.).</li>
+</ul>
+</section>
+<section id="emissioncalculator" class="level3">
+<h3 class="anchored" data-anchor-id="emissioncalculator">EmissionCalculator</h3>
+</section>
+<section id="calculate-the-direct-nitrogen-emission-from-crop-residue" class="level3">
+<h3 class="anchored" data-anchor-id="calculate-the-direct-nitrogen-emission-from-crop-residue">1. Calculate The direct nitrogen emission from crop residue</h3>
+<p><span class="math display">\[
+N_2O_{N_{CropResidues}} = N_{CropResidues} \times EF \quad \text{(2.6.5-2)}
+\]</span></p>
+<p><strong>Holos Code Reference</strong>: <a href="https://github.com/holos-aafc/Holos/blob/6f24e78c7bd46ae35848906933475f077562cd0d/H.Core/Calculators/Carbon/CarbonCalculatorBase.Nitrogen.cs#L377">GitHub - Equation 2.6.5-2</a></p>
+<p><strong>Variables</strong>:</p>
+<ul>
+<li><span class="math inline">\(N_2O_{N_{CropResidues}}\)</span>: Direct N₂O emissions (<span class="math inline">\(kg \, N_2O\text{-}N \, ha^{-1}\)</span>) resulting from crop residues</li>
+<li><span class="math inline">\(N_{CropResidues}\)</span>: N (nitrogen) inputs from crop residue returned to soil (<span class="math inline">\(kg N\)</span>)</li>
+<li><span class="math inline">\(EF\)</span>: Emission factor for crop residue nitrogen</li>
+</ul>
+</section>
+<section id="the-total-direct-nitrogen-emission-from-all-crop-sources" class="level3">
+<h3 class="anchored" data-anchor-id="the-total-direct-nitrogen-emission-from-all-crop-sources">2. The total direct nitrogen emission from all crop sources</h3>
+<p><span class="math inline">\(N_2O_{N_{direct}} = N_2O_{N_{SNdirect}} + N_2O_{N_{CropResidues}} + N_2O_{N_{CRNmindirect}} + N_2O_{N_{ONdirect}}\)</span></p>
+<p><strong>Notes:</strong></p>
+<p>Currently, only Nitrogen Direct Emission from crop residues is calculated, as this only accounts for crop-related factors and not livestock, fertilizer, and manure.</p>
+<p><strong>Variables</strong>:</p>
+<ul>
+<li><span class="math inline">\(N_2O_{N_{SNdirect}}\)</span>: N₂O emissions (<span class="math inline">\(kg \, N_2O\text{-}N \, kg^{-1} \, N \, ha^{-1}\)</span>) resulting from fertilizer application</li>
+<li><span class="math inline">\(N_2O_{N_{CropResidues}}\)</span>: N₂O emissions (<span class="math inline">\(kg \, N_2O\text{-}N \, kg^{-1} \, N \, ha^{-1}\)</span>) resulting from crop residues (and N mineralization?)</li>
+<li><span class="math inline">\(N_2O_{N_{CRNmindirect}}\)</span>: N₂O emissions (<span class="math inline">\(kg \, N_2O\text{-}N \, kg^{-1} \, N \, ha^{-1}\)</span>) resulting from N mineralization</li>
+<li><span class="math inline">\(N_2O_{N_{ONdirect}}\)</span>: N₂O emissions (<span class="math inline">\(kg \, N_2O\text{-}N \, kg^{-1} \, N \, ha^{-1}\)</span>) resulting from organic fertilizers</li>
+</ul>
+</section>
+<section id="convert-n₂o_n-to-n₂o" class="level3">
+<h3 class="anchored" data-anchor-id="convert-n₂o_n-to-n₂o">3. Convert <span class="math inline">\(N₂O_N\)</span> to N₂O</h3>
+<p><span class="math display">\[
+N_2O = N_2O_N \times \frac{44}{28}
+\]</span></p>
+<p><strong>Variables</strong>:</p>
+<ul>
+<li><span class="math inline">\(\frac{44}{28}\)</span>: Conversion factor from N₂O_N to N₂O based on molecular mass</li>
+</ul>
+</section>
+<section id="calculate-co₂-equivalent-of-n₂o-emissions" class="level3">
+<h3 class="anchored" data-anchor-id="calculate-co₂-equivalent-of-n₂o-emissions">4. Calculate CO₂ Equivalent of N₂O Emissions</h3>
+<p><span class="math display">\[
+CO_2 = N_2O \times 273
+\]</span></p>
+<p><strong>Notes:</strong></p>
+<p>Holos uses 273 as the Global Warming Potential value for N₂O. <a href="https://github.com/holos-aafc/Holos/blob/6f24e78c7bd46ae35848906933475f077562cd0d/H.Core/CoreConstants.cs#L135">Holos Reference</a></p>
+<p><strong>Variables</strong>:</p>
+<ul>
+<li><span class="math inline">\(273\)</span>: Global Warming Potential for N₂O compared to CO₂</li>
+</ul>
+</section>
+<section id="scientific-mode-vs-farm-mode" class="level3">
+<h3 class="anchored" data-anchor-id="scientific-mode-vs-farm-mode">Scientific mode Vs Farm mode</h3>
+<p><strong>Difference</strong></p>
+<p><strong>Data source: Default data VS External Data</strong></p>
+<p><strong>extract_default_climate_soil_data()</strong> Workflow:</p>
+<ol type="1">
+<li><p>Load the Holos defaults data for climate, soil, ecodistrict polygons, and RF_TX (differentiated by soil_texture [west/east])</p></li>
+<li><p>Based on longitude and latitude, get the ECO_ID for the farm, then fetch all necessary data (P, PE, soil type, and RF_TX)</p></li>
+</ol>
+<ul>
+<li>climate_soil_dict</li>
+</ul>
+<p><strong>fetch_external_data(self, points, years_range)</strong></p>
+<ul>
+<li><strong>ExternalClimateFetcher</strong></li>
+<li>fetch climate data through API (NASA), can get specific climate data within specific year.</li>
+<li>Calculate P and PE using daily precipitation and evapotranspiration.</li>
+<li>get climate_data（）</li>
+<li><strong>ExternalSoilTextureDataFetcher</strong></li>
+<li>Load all data source:</li>
+</ul>
+<ol type="1">
+<li>HWSP_SMU_csv<a href="Soil Mapping Unit Data">smu_df</a>（Harmonized World Soil Database V2.0）</li>
+<li>D_TEXTURE_DSDA.csv<a href="Soil Texture Data">texture_df</a></li>
+<li>HWSD2_RASTER[raster_path]</li>
+<li>rf_tx_params_dist.json[texture_mapped_path]</li>
+</ol>
+<ul>
+<li>get_raster_value(lon,lat),find SMU_ID</li>
+<li>then use smu_df == SMU_ID,to find texture code,texure code corresponing to a texture type,</li>
+<li>finally we use the sampling_rf_tx()</li>
+</ul>
+<p><strong>Function</strong> - Farmer mode: Expects all arrays to have a length of 1.</p>
+<ul>
+<li>Scientific mode: Expects arrays to have lengths greater than 1.</li>
+<li>Scientific mode:</li>
+<li>random_points = generate_random_points( polygon, num_points=self.num_runs ) based on the location of main farm , to generate the point</li>
+<li>climate_data, soil_data = self.fetch_external_data(points, self.year_range) within the farm’s ecodistrict.</li>
+<li>sampling_fr_topo(farm_ecod_fr_topo, self.num_runs)</li>
+<li>Farm mode:</li>
+<li>extract_default_climate_soil_data() -&gt; climate_soil_dict</li>
+</ul>
+</section>
+<section id="process" class="level3">
+<h3 class="anchored" data-anchor-id="process">Process</h3>
+<ul>
+<li>initial dataset:</li>
+</ul>
+<p>{python} {‘farm_id’: ‘farm1’, ‘area’: 10.0, ‘latitude’: 49.99704167, ‘longitude’: -123.2373389, ‘crop’: ‘Soybean’, ‘yield’: 2700.0, ‘start_year’: 2021, ‘end_year’: 2021, ‘eco_id’: None} 、、、 <strong>FarmDataManager</strong></p>
+<p>{‘farm_id’: ‘farm1’, ‘area’: 10.0, ‘latitude’: 49.99704167, ‘longitude’: -123.2373389, ‘crop’: ‘Soybean’, ‘yield’: 2700.0, ‘start_year’: 2021, ‘end_year’: 2021, ‘eco_id’: None, ‘province’: ‘British Columbia’, ‘group’: ‘Annual’}</p>
+</section>
+<section id="climatesoildatamanager" class="level3">
+<h3 class="anchored" data-anchor-id="climatesoildatamanager">ClimateSoilDataManager</h3>
+<p><strong>def get_climate_soil_data(self):</strong> - climate_soil_data = climate_soil_manager.get_climate_soil_data()</p>
+<p>{‘P’: array([512.]), ‘PE’: array([483.]), ‘FR_Topo’: array([0.]), ‘locations’: array([[-123.2373389 , 49.99704167]]), ‘soil_texture’: array([1.])}</p>
+</section>
+<section id="cropparametersmanager" class="level3">
+<h3 class="anchored" data-anchor-id="cropparametersmanager">CropParametersManager</h3>
+<ul>
+<li>def get_crop_parameters(self): Holos defined parameter</li>
+<li>def load_user_distributions(self): user defined crop parameters ### 1. Evapotranspiration</li>
+</ul>
+<p><strong>Parameter</strong>:</p>
+<ul>
+<li>mean_daily_temperature(T)</li>
+<li>solar_radiation (S)</li>
+<li>relative_humidity (R) %</li>
+</ul>
+<p>Use Turc equation to calculate Reference evapotranspiration</p>
+<p><span class="math display">\[
+PE = 0
+\begin{cases}
+\text{if} T \leq 0, \\
+\text{if} |T + 15| \leq 1* 10^{-10}
+\end{cases}
+\]</span> if mean_daily_temperature <span class="math inline">\(\leq 0\)</span>, <span class="math inline">\(PE = 0\)</span></p>
+<p><span class="math display">\[\begin{align*}
+\text{term1} &amp;= 0.013\\
+\text{term2} &amp;= \frac{T}{T + 15} \\
+\text{term3} &amp;= (23.8856 \times S ) + 50 \\
+\text{term4} &amp;= 1 + \frac{(50 - R)}{70} \\
+\\
+\text{if } &amp;\text{relative\_humidity} \geq 50: \\
+&amp;\text{PE} = \text{term1} \times \text{term2} \times \text{term3} \\
+\text{else:} \\
+&amp;\text{PE} = \text{term1} \times \text{term2} \times \text{term3} \times \text{term4}\\
+\text{if } &amp; PE \leq 0, \text{return} 0
+\end{align*}\]</span></p>
+</section>
+<section id="question" class="level3">
+<h3 class="anchored" data-anchor-id="question">Question</h3>
+<p><strong>def sampling_fr_topo</strong>\</p>
+<ul>
+<li><p>I am not sure how much the fr_topo influnce the result, \</p></li>
+<li><p>the chosen : low = value * 0.75, high = value * 1.25 (here is this come from) [1. Capturing Natural Variability? 2.Balance Between Accuracy and Flexibility?]</p></li>
+<li><p>what is N mineralization variable</p></li>
+<li><p>ask this one <span class="math inline">\(N_{CropResidues}\)</span>: N (nitrogen) inputs from crop residue returned to soil (<span class="math inline">\(kg N\)</span>)</p></li>
+<li><p>do we need to introduce CO₂?</p></li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

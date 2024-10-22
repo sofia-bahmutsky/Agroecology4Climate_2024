@@ -1,0 +1,485 @@
+---
+title: "Formula"
+format: html
+---
+### CropResidueCalculator
+
+1. $C_p$: Above and Belowground Residue Input
+
+$\text{if} \quad|(S_p - 100)| < 1 \times 10^{-5}$
+$$
+C_p = [yield \times (1 - \frac{{moisture \ content}}{100})] \times {Carbon \ concentration} \quad \text{(2.1.2-6)}
+$$
+
+Otherwise
+$$
+C_p = [(yield + yield \times \frac{S_p}{100}) \times (1 - \frac{{moisture \ content}}{100})] \times {Carbon \ concentration} 
+$$
+
+**Holos Code Reference**: [GitHub - Equation 2.1.2-6](https://github.com/holos-aafc/Holos/blob/21c18d94c871eaa1eaa2ab1d475eca0f0e34b35b/H.Core/Calculators/Carbon/ICBMSoilCarbonCalculator.cs#L270)
+
+**Variables**:
+
+- [$C_p$](#7-c_p-above-and-belowground-residue-input): Plant carbon in agricultural product ($kg ha^{-1}$)
+- $yield$: Crop yield (${kg} \text{ wet weight } ha^{-1}$, default provided, user override)
+- $S_p$: Percentage of product yield returned to soil (user override)
+- $\text{moisture content}$: Moisture content (%) of crop product [[Holos Table 7]](https://github.com/holos-aafc/Holos/blob/main/H.Content/Resources/Table_7_Relative_Biomass_Information.csv)
+- $\text{Carbon concentration}$: C concentration of all plant parts ($kg kg^{-1}$)
+
+2. $C_{p\_to\_soil}$: Carbon input from product
+
+$$
+C_{{p\_to\_soil}} = C_p \times \frac{S_p}{100} \quad \text{(2.1.2-7)}
+$$
+
+**Holos Code Reference**: [GitHub - Equation 2.1.2-7](https://github.com/holos-aafc/Holos/blob/21c18d94c871eaa1eaa2ab1d475eca0f0e34b35b/H.Core/Calculators/Carbon/ICBMSoilCarbonCalculator.cs#L307)
+
+**Variables**:
+
+- [$C_{p\_to\_soil}$](#8-c_p_to_soil-carbon-input-from-product): Carbon input from product ($kg ha^{-1}$)
+- [$C_p$](#7-c_p-above-and-belowground-residue-input): Plant C (carbon) in agricultural product ($kg ha^{-1}$)
+- $S_p$: Percentage of product yield returned to soil (user override)
+
+### 3. $C_s$: Carbon Input from Straw
+
+$$
+C_s = C_p \times \frac{R_s}{R_p} \times \frac{S_s}{100} \quad \text{(2.1.2-8)}
+$$
+
+**Holos Code Reference**: [GitHub - Equation 2.1.2-8](https://github.com/holos-aafc/Holos/blob/21c18d94c871eaa1eaa2ab1d475eca0f0e34b35b/H.Core/Calculators/Carbon/ICBMSoilCarbonCalculator.cs#L344)
+
+**Variables**:
+
+- [$C_s$](#9-c_s-carbon-input-from-straw): C (carbon)  input from straw ($kg ha^{-1}$)
+- [$C_p$](#7-c_p-above-and-belowground-residue-input): Plant C (carbon) in agricultural product ($kg ha^{-1}$)
+- $R_s$: Relative biomass allocation coefficient for straw [[Holos Table 7]](https://github.com/holos-aafc/Holos/blob/main/H.Content/Resources/Table_7_Relative_Biomass_Information.csv)
+- $R_p$：Relative biomass allocation coefficient for product [[Holos Table 7]](https://github.com/holos-aafc/Holos/blob/main/H.Content/Resources/Table_7_Relative_Biomass_Information.csv)
+- $S_s$: Percentage of straw returned to soil (user override)
+
+### 4. $C_r$: Carbon input from Root
+
+$$
+C_r = C_p \times \frac{R_r}{R_p} \times \frac{S_r}{100} \quad \text{(2.1.2-9)}
+$$
+
+**Holos Code Reference**: [GitHub - Equation 2.1.2-9](https://github.com/holos-aafc/Holos/blob/21c18d94c871eaa1eaa2ab1d475eca0f0e34b35b/H.Core/Calculators/Carbon/ICBMSoilCarbonCalculator.cs#L398)
+
+**Variables**:
+
+- [$C_r$](#10-c_r-carbon-input-from-root): C (carbon)  input from roots ($kg ha^{-1}$)
+- [$C_p$](#7-c_p-above-and-belowground-residue-input):  Plant C (carbon) in agricultural product ($kg ha^{-1}$)
+- $R_r$:Relative biomass allocation coefficient for roots [[Holos Table 7]](https://github.com/holos-aafc/Holos/blob/main/H.Content/Resources/Table_7_Relative_Biomass_Information.csv)
+- $R_p$：Relative biomass allocation coefficient for product [[Holos Table 7]](https://github.com/holos-aafc/Holos/blob/main/H.Content/Resources/Table_7_Relative_Biomass_Information.csv)
+- $S_r$: Percentage of roots returned to soil (user override)
+
+### 5. $C_e$: Carbon Input from Exudate
+
+$$
+C_e = C_p \times \frac{R_e}{R_p} \quad \text{(2.1.2-9)}
+$$
+
+**Holos Code Reference**: [GitHub - Equation 2.1.2-9](https://github.com/holos-aafc/Holos/blob/21c18d94c871eaa1eaa2ab1d475eca0f0e34b35b/H.Core/Calculators/Carbon/ICBMSoilCarbonCalculator.cs#L398)
+
+**Variables**:
+
+- [$C_e$](#11-c_e-carbon-input-from-exudate): C (carbon) input from extra-root material ($kg ha^{-1}$)
+- [$C_p$](#7-c_p-above-and-belowground-residue-input): Plant C (carbon) in agricultural product ($kg ha^{-1}$)
+- $R_e$: Relative biomass allocation coefficient for extra-root material [[Holos Table 7]](https://github.com/holos-aafc/Holos/blob/main/H.Content/Resources/Table_7_Relative_Biomass_Information.csv)
+- $R_p$: Relative biomass allocation coefficient for product [[Holos Table 7]](https://github.com/holos-aafc/Holos/blob/main/H.Content/Resources/Table_7_Relative_Biomass_Information.csv)
+
+### 6. $Grain_N$
+
+$$
+{Grain}_N = \frac{C_{p\_to\_soil}}{0.45} \times \frac{N_p}{1000}\quad \text{(2.5.6-2)}
+$$
+
+**Holos Code Reference**: [Holos GitHub - Equation 2.5.6-2](https://github.com/holos-aafc/Holos/blob/21c18d94c871eaa1eaa2ab1d475eca0f0e34b35b/H.Core/Calculators/Nitrogen/N2OEmissionFactorCalculator.cs#L561)
+
+**Variables**:
+
+- [${Grain}_N$](#3-grain_n): Nitrogen content of the grain returned to the soil ($kg N ha^{-1}$)
+- [$C_{p\_to\_soil}$](#8-carbon-input-from-product): Carbon input from product ($kg ha^{-1}$)
+- $N_p$: N concentration in the product ($kg kg^{-1}$) [[Holos Table 7]](https://github.com/holos-aafc/Holos/blob/main/H.Content/Resources/Table_7_Relative_Biomass_Information.csv)
+
+### 7. $Straw_N$
+
+$$
+{Straw}_N = \frac{C_s}{0.45} \times \frac{N_s}{1000} \quad \text{(2.5.6-3)}
+$$
+
+**Holos Code Reference**: [GitHub - Equation 2.5.6-3](https://github.com/holos-aafc/Holos/blob/21c18d94c871eaa1eaa2ab1d475eca0f0e34b35b/H.Core/Calculators/Nitrogen/N2OEmissionFactorCalculator.cs#L575)
+
+**Variables**:
+
+- [${Straw}_N$](#4-straw_n): Nitrogen content of the straw returned to the soil ($kg N ha^{-1}$)
+- [$C_s$](#9-c_s-carbon-input-from-straw): Carbon input from straw ($kg ha^{-1}$)
+- $N_s$: N concentration in the straw ($kg kg^{-1}$) [[Holos Table 7]](https://github.com/holos-aafc/Holos/blob/main/H.Content/Resources/Table_7_Relative_Biomass_Information.csv)
+
+### 8. $Root_N$
+
+$$
+{Root}_N = \frac{C_r}{0.45} \times \frac{N_r}{1000}\quad \text{(2.5.6-4)}
+$$
+
+**Holos Code Reference**: [GitHub - Equation 2.5.6-4](https://github.com/holos-aafc/Holos/blob/21c18d94c871eaa1eaa2ab1d475eca0f0e34b35b/H.Core/Calculators/Nitrogen/N2OEmissionFactorCalculator.cs#L589)
+
+**Variables**:
+
+- [${Root}_N$](#5-root_n): Nitrogen content of the root returned to the soil ($kg N ha^{-1}$)
+- [$C_r$](#10-c_r-carbon-input-from-root): Carbon input from roots ($kg ha^{-1}$)
+- $N_r$: N concentration in the roots ($kg kg^{-1}$) [[Holos Table 7]](https://github.com/holos-aafc/Holos/blob/main/H.Content/Resources/Table_7_Relative_Biomass_Information.csv)
+
+### 9. $Exudate_N$
+
+$$
+{Exudate}_N = \frac{C_e}{0.45} \times \frac{N_e}{1000} \quad \text{(2.5.6-5)}
+$$
+
+**Holos Code Reference**: [GitHub - Equation 2.5.6-5](https://github.com/holos-aafc/Holos/blob/21c18d94c871eaa1eaa2ab1d475eca0f0e34b35b/H.Core/Calculators/Nitrogen/N2OEmissionFactorCalculator.cs#L603)
+
+**Variables**:
+
+- [$\text{Exudate}_N$](#6-exudate_n): Nitrogen content of the exudates returned to the soil ($kg N ha^{-1}$)
+- [$C_e$](#11-c_e-carbon-input-from-exudate): Carbon input from extra-root material ($kg ha^{-1}$)
+- $N_e$: N concentration in the extra root material ($kg kg^{-1}$) [[Holos Table 7]](https://github.com/holos-aafc/Holos/blob/main/H.Content/Resources/Table_7_Relative_Biomass_Information.csv)
+
+### 10. AboveGround Residue Nitrogen
+For Annual and Perennial Plants,
+
+$$
+AboveGround_{residue\_N} = [{Grain_N} + {Straw_N}] \quad \text{(2.5.6-6)}
+$$
+ For Root Plant,
+
+$$
+AboveGround_{residue\_N} = {Straw_N} \quad \text{(2.5.6-6)}
+$$
+For Cover and Silage Plant,
+
+$$
+AboveGround_{residue\_N} = {Grain_N} \quad \text{(2.5.6-6)}
+$$
+
+**Holos Code Reference**: [Holos GitHub - Equation 2.5.6-6](https://github.com/holos-aafc/Holos/blob/21c18d94c871eaa1eaa2ab1d475eca0f0e34b35b/H.Core/Calculators/Nitrogen/N2OEmissionFactorCalculator.cs#L617)
+
+**Variables**:
+
+- [$AboveGround_{residue\_N}$](#1-aboveground-residue-nitrogen): Nitrogen in above-ground crop residues ($kg N$)
+- [${Grain_N}$](#6-grain_n): Nitrogen content of the grain returned to the soil ($kg N ha^{-1}$)
+- [${Straw_N}$](#7-straw_n): Nitrogen content of the straw returned to the soil ($kg N ha^{-1}$)
+
+### 11. BelowGround Residue Nitrogen
+
+For annual plants:
+
+$$
+BelowGround_{{residue_N}} = [{Root_N} + {Exudate_N}] \quad \text{(2.5.6-7)}
+$$
+
+**Holos Code Reference**: [Holos GitHub - Equation 2.5.6-7](https://github.com/holos-aafc/Holos/blob/21c18d94c871eaa1eaa2ab1d475eca0f0e34b35b/H.Core/Calculators/Nitrogen/N2OEmissionFactorCalculator.cs#L679)
+
+For perennial plants:
+
+$$
+BelowGround_{residue_N} = [\frac{S_r}{100} \times {Root}_N] + {Exudate_N} \quad \text{(2.5.6-8)}
+$$
+
+For root plant,
+
+$$
+BelowGround_{residue_N} = {Grian_N} + {Exudate_N} \quad \text{(2.5.6-8)}
+$$
+
+For cover and silage plant,
+
+$$
+BelowGround_{residue_N} = {Root_N} + {Exudate_N} \quad \text{(2.5.6-8)}
+$$
+
+**Holos Code Reference**: [Holos GitHub - Equation 2.5.6-8](https://github.com/holos-aafc/Holos/blob/21c18d94c871eaa1eaa2ab1d475eca0f0e34b35b/H.Core/Calculators/Nitrogen/N2OEmissionFactorCalculator.cs#L685)
+
+**Variables**:
+
+- [$BelowGround_{residue\_N}$](#2-belowground-residue-nitrogen): Belowground residue nitrogen ($kg N ha^{-1}$)
+- [${Root_N}$](#8-root_n): Nitrogen content of the root returned to the soil ($kg N ha^{-1}$)
+- [${Exudate_N}$](#9-exudate_n): Nitrogen content of the exudates returned to the soil ($kg N ha^{-1}$)
+- $S_r$: Root turnover fraction
+
+### 12. The total nitrogen content of the crop residue($N_{crop\_residues}$).
+$$
+N_{CropResidues} = (AboveGround_{residue\_N} + BelowGround_{residue\_N}) \times {area} \quad \text{(2.5.6-9)}
+$$
+
+**Variables**:
+
+- $N_{CropResidues}$: resulting from crop residues and N mineralization
+- [$AboveGround_{residue\_N}$](#1-aboveground-residue-nitrogen): Aboveground residue nitrogen ($kg N ha^{-1}$)
+- [$BelowGround_{residue\_N}$](#2-belowground-residue-nitrogen): Belowground residue nitrogen $kg N ha^{-1}$
+- $area$: Area of crop ($ha$)
+
+### Carbon Input
+
+**Above ground carbon input**
+
+For root plants:
+
+$$
+AboveGround_{carboninput} = c_s
+$$
+
+others plant,
+$$
+AboveGround_{carboninput} = C_{p\_to\_soil} + C_s
+$$
+
+**Below ground carbon input**
+
+For root plants:
+
+$$
+BelowGround_{carboninput} = C_{p\_to\_soil} + C_e
+$$
+
+others plant,
+$$
+AboveGround_{carboninput} = C_r + C_e
+$$
+
+### EmissionFactorCalculator
+
+### 1. Calculate Base Emission Factor - Due to Ecodistrict-level Emission Factor
+
+
+
+For humid environment:$P > PE$
+
+$$
+EF_{CT} = \exp^{0.00558 \times P - 7.7} \quad(2.5.1-1)
+$$
+For dry environment $PE \geq P$
+
+$$
+EF_{CT}= \exp^{0.00558 \times PE - 7.7}\quad(2.5.1-2)
+$$ 
+
+**Holos Code Reference**: [GitHub - Equation 2.5.1](https://github.com/holos-aafc/Holos/blob/6f24e78c7bd46ae35848906933475f077562cd0d/H.Core/Calculators/Nitrogen/N2OEmissionFactorCalculator.cs#L880)
+
+**Variables**:
+
+- $EF_{CT}$: Ecodistrict-level emission factor ($kg \, N_2O\text{-}N \, (kg \, N)^{-1}$)
+- $P$: Annual growing season precipitation (May – October)(mm)
+- $PE$: Growing season potential evapotranspiration, by ecodistrict (May – October) (mm)
+
+### 2. Calculate Emission Factor Adjustment Due to Position in Landscape/Topography
+
+For humid environments $P > PE$ : 
+
+$$
+EF_{Topo} = EF_{CT} \quad(2.5.2-1)
+$$
+
+For dry environment $PE \geq P$:
+
+- For non-irrigated sites:
+
+$$
+EF_{Topo} = (EF\\\_CT_{P < PE}\times FR_{Topo}) + [EF\\\_CT_{P>PE} \times (1 - FR_{Topo})] \quad(2.5.2-2)
+$$
+
+For irrigated sites, the assumption is that the irrigation amount is equal to PE - P, thus making P = PE, 
+
+$$
+EF_{Topo} = EF_{CT} \quad (2.5.2-3)
+$$ 
+
+**Holos Code Reference**: [GitHub - Equation 2.5.2](https://github.com/holos-aafc/Holos/blob/6f24e78c7bd46ae35848906933475f077562cd0d/H.Core/Calculators/Nitrogen/N2OEmissionFactorCalculator.cs#L381)
+
+**Variables**:
+
+- $EF_{Topo}$: N2O emission factor adjusted due to position in landscape and moisture regime ($kg \, N_2O\text{-}N$)
+- $FR_{Topo}$: Fraction of land occupied by lower portions of the landscape
+
+### 3. Calculate Emission Factor Adjustment Due to Soil Texture
+
+$$
+EF_{Base} = (EF_{Topo} \times RF\_TX) \times \frac{1}{0.645} \quad (2.5.3-2)
+$$
+
+$$
+EF = EF_{Base} * RF\_NS * RF\_Till *RF\_CS * RF\_AM
+$$
+
+**Holos Code Reference**: [GitHub - Equation 2.5.3-2](https://github.com/holos-aafc/Holos/blob/6f24e78c7bd46ae35848906933475f077562cd0d/H.Core/Calculators/Nitrogen/N2OEmissionFactorCalculator.cs#L451)
+
+**Variables**:
+
+- $RF\_TX$: Weighted modifier which provides a correction of the $EF\_Topo$ in ecodistrict based on the soil texture.
+- $EF\_Base$: A function of the three factors that create a base ecodistrict-specific value that accounts for the climatic, topographic, and edaphic characteristics of the spatial unit for lands.
+- $\frac{1}{0.645}$: Fraction of growing season emissions of total annual emissions (Pelster et al. 2022, in prep.).
+
+### EmissionCalculator
+
+### 1. Calculate The direct nitrogen emission from crop residue
+
+$$
+N_2O_{N_{CropResidues}} = N_{CropResidues} \times EF \quad \text{(2.6.5-2)}
+$$ 
+
+**Holos Code Reference**: [GitHub - Equation 2.6.5-2](https://github.com/holos-aafc/Holos/blob/6f24e78c7bd46ae35848906933475f077562cd0d/H.Core/Calculators/Carbon/CarbonCalculatorBase.Nitrogen.cs#L377)
+
+**Variables**:
+
+- $N_2O_{N_{CropResidues}}$: Direct N₂O emissions ($kg \, N_2O\text{-}N \, ha^{-1}$) resulting from crop residues 
+- $N_{CropResidues}$: N (nitrogen) inputs from crop residue returned to soil ($kg N$)
+- $EF$: Emission factor for crop residue nitrogen 
+
+### 2. The total direct nitrogen emission from all crop sources
+
+$N_2O_{N_{direct}} = N_2O_{N_{SNdirect}} + N_2O_{N_{CropResidues}} + N_2O_{N_{CRNmindirect}} + N_2O_{N_{ONdirect}}$
+
+**Notes:**
+
+Currently, only Nitrogen Direct Emission from crop residues is calculated, as this only accounts for crop-related factors and not livestock, fertilizer, and manure.
+
+**Variables**:
+
+- $N_2O_{N_{SNdirect}}$: N₂O emissions ($kg \, N_2O\text{-}N \, kg^{-1} \, N \, ha^{-1}$) resulting from fertilizer application
+- $N_2O_{N_{CropResidues}}$: N₂O emissions ($kg \, N_2O\text{-}N \, kg^{-1} \, N \, ha^{-1}$) resulting from crop residues (and N mineralization?)
+- $N_2O_{N_{CRNmindirect}}$: N₂O emissions ($kg \, N_2O\text{-}N \, kg^{-1} \, N \, ha^{-1}$) resulting from N mineralization
+- $N_2O_{N_{ONdirect}}$: N₂O emissions ($kg \, N_2O\text{-}N \, kg^{-1} \, N \, ha^{-1}$) resulting from organic fertilizers
+
+### 3. Convert $N₂O_N$ to N₂O
+
+$$
+N_2O = N_2O_N \times \frac{44}{28}
+$$
+
+**Variables**:
+
+- $\frac{44}{28}$: Conversion factor from N₂O_N to N₂O based on molecular mass
+
+### 4. Calculate CO₂ Equivalent of N₂O Emissions
+
+$$
+CO_2 = N_2O \times 273
+$$
+
+**Notes:**
+
+Holos uses 273 as the Global Warming Potential value for N₂O. [Holos Reference](https://github.com/holos-aafc/Holos/blob/6f24e78c7bd46ae35848906933475f077562cd0d/H.Core/CoreConstants.cs#L135)
+
+**Variables**:
+
+- $273$: Global Warming Potential for N₂O compared to CO₂
+
+
+### Scientific mode Vs Farm mode
+
+**Difference**
+
+**Data source: Default data VS External Data**
+
+**extract_default_climate_soil_data()**
+ Workflow:
+
+1. Load the Holos defaults data for climate, soil, ecodistrict polygons, and RF_TX (differentiated by soil_texture [west/east])
+
+2. Based on longitude and latitude, get the ECO_ID for the farm, then fetch all necessary data (P, PE, soil type, and RF_TX)
+
+- climate_soil_dict
+
+**fetch_external_data(self, points, years_range)**
+
+- **ExternalClimateFetcher**
+- fetch climate data through API (NASA), can get specific climate data within specific year.
+- Calculate P and PE using daily precipitation and evapotranspiration.
+- get climate_data（）
+- **ExternalSoilTextureDataFetcher**
+- Load all data source:
+ 1. HWSP_SMU_csv[smu_df](Soil Mapping Unit Data)（Harmonized World Soil Database V2.0）
+ 2. D_TEXTURE_DSDA.csv[texture_df](Soil Texture Data)
+ 3. HWSD2_RASTER[raster_path]
+ 4. rf_tx_params_dist.json[texture_mapped_path]
+- get_raster_value(lon,lat),find SMU_ID
+- then use smu_df == SMU_ID,to find texture code,texure code corresponing to a texture type,
+- finally we use the sampling_rf_tx()
+
+
+**Function**
+- Farmer mode: Expects all arrays to have a length of 1.
+
+- Scientific mode: Expects arrays to have lengths greater than 1.
+- Scientific mode:
+ - random_points = generate_random_points(
+                    polygon, num_points=self.num_runs
+                )
+based on the location of main farm , to generate the point
+- climate_data, soil_data = self.fetch_external_data(points, self.year_range) within the farm's ecodistrict.
+- sampling_fr_topo(farm_ecod_fr_topo, self.num_runs)
+- Farm mode:
+ - extract_default_climate_soil_data() -> climate_soil_dict
+
+### Process
+- initial dataset:
+
+{python}
+{'farm_id': 'farm1', 'area': 10.0, 'latitude': 49.99704167, 'longitude': -123.2373389, 'crop': 'Soybean', 'yield': 2700.0, 'start_year': 2021, 'end_year': 2021, 'eco_id': None}
+、、、
+**FarmDataManager**
+
+{'farm_id': 'farm1', 'area': 10.0, 'latitude': 49.99704167, 'longitude': -123.2373389, 'crop': 'Soybean', 'yield': 2700.0, 'start_year': 2021, 'end_year': 2021, 'eco_id': None, 'province': 'British Columbia', 'group': 'Annual'}
+
+### ClimateSoilDataManager
+**def get_climate_soil_data(self):**
+- climate_soil_data = climate_soil_manager.get_climate_soil_data()
+
+{'P': array([512.]), 'PE': array([483.]), 'FR_Topo': array([0.]), 'locations': array([[-123.2373389 ,   49.99704167]]), 'soil_texture': array([1.])}
+
+### CropParametersManager
+- def get_crop_parameters(self): Holos defined parameter
+- def load_user_distributions(self): user defined crop parameters
+### 1. Evapotranspiration 
+
+**Parameter**:
+
+- mean_daily_temperature(T)
+- solar_radiation (S)
+- relative_humidity (R) % 
+
+Use Turc equation to calculate Reference evapotranspiration
+
+$$
+PE = 0
+\begin{cases} 
+\text{if} T \leq 0, \\ 
+\text{if} |T + 15| \leq 1* 10^{-10}
+\end{cases}
+$$
+if mean_daily_temperature $\leq 0$, $PE = 0$
+
+\begin{align*}
+\text{term1} &= 0.013\\
+\text{term2} &= \frac{T}{T + 15} \\
+\text{term3} &= (23.8856 \times S ) + 50 \\
+\text{term4} &= 1 + \frac{(50 - R)}{70} \\
+\\
+\text{if } &\text{relative\_humidity} \geq 50: \\
+&\text{PE} = \text{term1} \times \text{term2} \times \text{term3} \\
+\text{else:} \\
+&\text{PE} = \text{term1} \times \text{term2} \times \text{term3} \times \text{term4}\\
+\text{if } & PE \leq 0, \text{return} 0
+\end{align*}
+
+### Question
+
+**def sampling_fr_topo**\\
+
+- I am not sure how much the fr_topo influnce the result, \\
+- the chosen : low = value * 0.75, high = value * 1.25  (here is this come from)
+[1. Capturing Natural Variability?
+2.Balance Between Accuracy and Flexibility?]
+- what is  N mineralization variable
+- ask this one $N_{CropResidues}$: N (nitrogen) inputs from crop residue returned to soil ($kg N$)
+
+- do we need to introduce CO₂?
+
