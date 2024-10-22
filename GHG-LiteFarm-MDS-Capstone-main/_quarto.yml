@@ -1,0 +1,15 @@
+project:
+  output-dir: reports/final_report
+
+toc: true
+number-sections: true
+bibliography: references.bib  
+  
+format:
+  html: 
+      include-css: reports/final_report/custom.css
+      default-image-extension: svg
+  pdf:
+      documentclass: report
+      default-image-extension: tex
+      table-title: false
