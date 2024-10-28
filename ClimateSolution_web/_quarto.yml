@@ -3,8 +3,8 @@ project:
 
 publish:
   gh-pages:
-    branch: gh-pages    # Quarto will publish to this branch
-    repo: annywm/ClimateSolution
+    branch: Anny    # Quarto will publish to this branch
+    repo: sofia-bahmutsky/Agroecology4Climate_2024
   
 website:
   title: Climate Solution
