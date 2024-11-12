@@ -2,8 +2,8 @@ project:
   type: website
 
 publish:
-  gh-pages:
-    branch: Anny    # Quarto will publish to this branch
+  ClimateSolution_web:
+    branch: main   
     repo: sofia-bahmutsky/Agroecology4Climate_2024
   
 website:
