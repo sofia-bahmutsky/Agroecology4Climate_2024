@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Parameter – Climate Solution</title>
+<title>Getting Started – Climate Solution</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -69,35 +69,6 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
@@ -188,14 +159,9 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#ghg-emission-model-parameters" id="toc-ghg-emission-model-parameters" class="nav-link active" data-scroll-target="#ghg-emission-model-parameters">GHG Emission Model Parameters</a>
-  <ul class="collapse">
-  <li><a href="#climate" id="toc-climate" class="nav-link" data-scroll-target="#climate">Climate</a></li>
-  <li><a href="#soil" id="toc-soil" class="nav-link" data-scroll-target="#soil">Soil</a></li>
-  <li><a href="#crop" id="toc-crop" class="nav-link" data-scroll-target="#crop">Crop</a></li>
-  <li><a href="#modifiersfertilizer" id="toc-modifiersfertilizer" class="nav-link" data-scroll-target="#modifiersfertilizer">Modifiers(fertilizer)</a></li>
-  <li><a href="#parameters-for-crop-residue-nitrogen-calculation" id="toc-parameters-for-crop-residue-nitrogen-calculation" class="nav-link" data-scroll-target="#parameters-for-crop-residue-nitrogen-calculation">Parameters for Crop Residue Nitrogen Calculation</a></li>
-  </ul></li>
+  <li><a href="#what-is-holos" id="toc-what-is-holos" class="nav-link active" data-scroll-target="#what-is-holos">What is Holos</a></li>
+  <li><a href="#what-is-pyholos" id="toc-what-is-pyholos" class="nav-link" data-scroll-target="#what-is-pyholos">What is PyHolos</a></li>
+  <li><a href="#goal" id="toc-goal" class="nav-link" data-scroll-target="#goal">Goal</a></li>
   </ul>
 </nav>
     </div>
@@ -204,7 +170,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Parameter</h1>
+<h1 class="title">Getting Started</h1>
 </div>
 
 
@@ -221,514 +187,27 @@ window.Quarto = {
 </header>
 
 
-<section id="ghg-emission-model-parameters" class="level2">
-<h2 class="anchored" data-anchor-id="ghg-emission-model-parameters">GHG Emission Model Parameters</h2>
-<section id="climate" class="level3">
-<h3 class="anchored" data-anchor-id="climate">Climate</h3>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 16%">
-<col style="width: 13%">
-<col style="width: 8%">
-<col style="width: 23%">
-<col style="width: 22%">
-<col style="width: 14%">
-</colgroup>
-<thead>
-<tr class="header">
-<th><strong>Parameter Name</strong></th>
-<th><strong>Description</strong></th>
-<th><strong>Units</strong></th>
-<th><strong>Associate Formula/Variables(if applicable)</strong></th>
-<th><strong>Region/Country Specific</strong></th>
-<th><strong>Data Source</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>P</td>
-<td>Annual growing season precipitation (May – October)</td>
-<td>mm</td>
-<td><span class="math inline">\(EF_{{CT}_{P}}\)</span></td>
-<td>Common</td>
-<td>Default(based on ecodistrict level) &amp; External Source (NASA)</td>
-</tr>
-<tr class="even">
-<td>PE</td>
-<td>Annual growing season potential evapotranspiration (May – October)</td>
-<td>mm</td>
-<td><span class="math inline">\(EF_{{CT}_{PE}}\)</span></td>
-<td>Common</td>
-<td>Default(based on ecodistrict level) &amp; External Source(NASA)</td>
-</tr>
-</tbody>
-</table>
+<section id="what-is-holos" class="level1">
+<h1>What is Holos</h1>
+<p>The Holos model estimates greenhouse gas (GHG) emissions and changes in soil carbon content on Canadian farms, helping users explore ways to reduce emissions and increase soil carbon content. Users can input farm-specific data and adjust management practices such as livestock diets or farming practices. The model utilizes climate, soil, and agronomic data to calculate emissions from a variety of sources, including crops, livestock, and energy use. Documentation and FAQs are available on <a href="https://github.com/holos-aafc/Holos">GitHub</a> <a href="https://agriculture.canada.ca/en/agricultural-production/holos">Learn more</a></p>
 </section>
-<section id="soil" class="level3">
-<h3 class="anchored" data-anchor-id="soil">Soil</h3>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 16%">
-<col style="width: 13%">
-<col style="width: 8%">
-<col style="width: 23%">
-<col style="width: 22%">
-<col style="width: 14%">
-</colgroup>
-<thead>
-<tr class="header">
-<th><strong>Parameter Name</strong></th>
-<th><strong>Description</strong></th>
-<th><strong>Units</strong></th>
-<th><strong>Associate Formula/Variables(if applicable)</strong></th>
-<th><strong>Region/Country Specific</strong></th>
-<th><strong>Data Source</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span class="math inline">\(FR_{Topo}\)</span></td>
-<td>Fraction of land occupied by lower portions of landscape based on ecodistrict</td>
-<td>unit</td>
-<td>Emission Factor <span class="math inline">\(EF_{Topo}\)</span> (only for non-irrigated sites and dry environments)</td>
-<td>Yes</td>
-<td>Default(based on ecodistrict level)</td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(RF_{TX}\)</span></td>
-<td>a correction of the <span class="math inline">\(EF_{Topo}\)</span> in specific ecodistrict based on the soil texture</td>
-<td>unit</td>
-<td><span class="math inline">\(EF_{base}\)</span></td>
-<td>Yes</td>
-<td>Default(based on ecodistrict level and soil type)</td>
-</tr>
-</tbody>
-</table>
+<section id="what-is-pyholos" class="level1">
+<h1>What is PyHolos</h1>
+<p>PyHolos is a model that integrates the Holos greenhouse gas emissions calculation module into the LiteFarm framework, specifically focusing on nitrous oxide (𝑁2𝑂) emissions from crop residues. It enhances the original Holos model to provide more accurate calculations of 𝑁2𝑂 emissions related to crop residue management.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="PyHolos _Sturcture.png" class="img-fluid figure-img"></p>
+<figcaption>PyHolos Structure</figcaption>
+</figure>
+</div>
 </section>
-<section id="crop" class="level3">
-<h3 class="anchored" data-anchor-id="crop">Crop</h3>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 16%">
-<col style="width: 13%">
-<col style="width: 8%">
-<col style="width: 23%">
-<col style="width: 22%">
-<col style="width: 14%">
-</colgroup>
-<thead>
-<tr class="header">
-<th><strong>Parameter Name</strong></th>
-<th><strong>Description</strong></th>
-<th><strong>Units</strong></th>
-<th><strong>Associate Formula/Variables(if applicable)</strong></th>
-<th><strong>Region/Country Specific</strong></th>
-<th><strong>Data Source</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Moisture</td>
-<td>Moisture content of product</td>
-<td>%</td>
-<td><span class="math inline">\(C_p\)</span></td>
-<td>Common</td>
-<td>default Canada value (based on P and PE)</td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(N_p\)</span></td>
-<td>Nitrogen concentration in the product</td>
-<td>kg N/kg</td>
-<td><span class="math inline">\(Grain_N\)</span></td>
-<td>Common</td>
-<td>default (based on P and PE)</td>
-</tr>
-<tr class="odd">
-<td><span class="math inline">\(N_s\)</span></td>
-<td>Nitrogen concentration in the straw</td>
-<td>kg N/kg</td>
-<td><span class="math inline">\(Straw_N\)</span></td>
-<td>Common</td>
-<td>default (based on P and PE)</td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(N_r\)</span></td>
-<td>Nitrogen concentration in the root</td>
-<td>kg N/kg</td>
-<td><span class="math inline">\(Root_N\)</span></td>
-<td>Common</td>
-<td>default (based on P and PE)</td>
-</tr>
-<tr class="odd">
-<td><span class="math inline">\(N_e\)</span></td>
-<td>Nitrogen concentration in the extraroot</td>
-<td>kg N/kg</td>
-<td><span class="math inline">\(Exudate_N\)</span></td>
-<td>Common</td>
-<td>default (based on P and PE)</td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(R_p\)</span></td>
-<td>Relative biomass allocation coefficient for product</td>
-<td>Unit</td>
-<td><span class="math inline">\(C_s\)</span>, <span class="math inline">\(C_r\)</span>,<span class="math inline">\(C_e\)</span></td>
-<td>Common</td>
-<td>default (based on P and PE)</td>
-</tr>
-<tr class="odd">
-<td><span class="math inline">\(R_r\)</span></td>
-<td>Relative biomass allocation coefficient for roots</td>
-<td>Unit</td>
-<td><span class="math inline">\(C_r\)</span></td>
-<td>Common</td>
-<td>default (based on P and PE)</td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(R_s\)</span></td>
-<td>Relative biomass allocation coefficient for straw</td>
-<td>Unit</td>
-<td><span class="math inline">\(C_s\)</span></td>
-<td>Common</td>
-<td>default (based on P and PE)</td>
-</tr>
-<tr class="odd">
-<td><span class="math inline">\(R_e\)</span></td>
-<td>Relative biomass allocation coefficient for extra-root</td>
-<td>Unit</td>
-<td><span class="math inline">\(C_e\)</span></td>
-<td>Common</td>
-<td>default (based on P and PE)</td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(C_{concentration}\)</span></td>
-<td>Carbon concentration of all plant parts</td>
-<td>kg C/kg</td>
-<td><span class="math inline">\(C_p\)</span></td>
-<td>Common</td>
-<td>default (based crop group)</td>
-</tr>
-<tr class="odd">
-<td><span class="math inline">\(S_p\)</span></td>
-<td>Percentage of product yield returned to soil</td>
-<td>%</td>
-<td><span class="math inline">\(C_p\)</span>,<span class="math inline">\(C_{p\_to\_soil}\)</span></td>
-<td>Common</td>
-<td>default (based crop group)</td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(S_s\)</span></td>
-<td>Percentage of straw yield returned to soil</td>
-<td>%</td>
-<td><span class="math inline">\(Straw_N\)</span>,<span class="math inline">\(C_s\)</span></td>
-<td>Common</td>
-<td>default (based crop group)</td>
-</tr>
-<tr class="odd">
-<td><span class="math inline">\(S_r\)</span></td>
-<td>Percentage of root yield returned to soil</td>
-<td>%</td>
-<td><span class="math inline">\(Root_N\)</span>,<span class="math inline">\(C_r\)</span></td>
-<td>Common</td>
-<td>default (based crop group)</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="modifiersfertilizer" class="level3">
-<h3 class="anchored" data-anchor-id="modifiersfertilizer">Modifiers(fertilizer)</h3>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 16%">
-<col style="width: 13%">
-<col style="width: 8%">
-<col style="width: 23%">
-<col style="width: 22%">
-<col style="width: 14%">
-</colgroup>
-<thead>
-<tr class="header">
-<th><strong>Parameter Name</strong></th>
-<th><strong>Description</strong></th>
-<th><strong>Units</strong></th>
-<th><strong>Associate Formula/Variables(if applicable)</strong></th>
-<th><strong>Region/Country Specific</strong></th>
-<th><strong>Data Source</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span class="math inline">\(RF_{CS}\)</span></td>
-<td>Reduction factor for Cropping System</td>
-<td>unit</td>
-<td><span class="math inline">\(EF\)</span></td>
-<td>Common</td>
-<td>default (based on perennial or annual)</td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(RF_{NS}\)</span></td>
-<td>Reduction factor for N sourse (SN = Synthetic Nitrogen; ON = Organic Nitrogen; CRN = Crop Residue Nitrogen )</td>
-<td>unit</td>
-<td><span class="math inline">\(EF\)</span></td>
-<td>NA</td>
-<td>based on the</td>
-</tr>
-<tr class="odd">
-<td><span class="math inline">\(RF_{AM}\)</span></td>
-<td>Reduction factor based on application method</td>
-<td>unit</td>
-<td><span class="math inline">\(EF\)</span></td>
-<td>NA</td>
-<td>based on the</td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(RF_{Till}\)</span></td>
-<td>Tillage modifier based on conservation or conventional Tillage</td>
-<td>unit</td>
-<td><span class="math inline">\(EF\)</span></td>
-<td>NA</td>
-<td>based on the</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="parameters-for-crop-residue-nitrogen-calculation" class="level3">
-<h3 class="anchored" data-anchor-id="parameters-for-crop-residue-nitrogen-calculation">Parameters for Crop Residue Nitrogen Calculation</h3>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 16%">
-<col style="width: 16%">
-<col style="width: 16%">
-<col style="width: 16%">
-<col style="width: 16%">
-<col style="width: 16%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Parameter groups</th>
-<th>Parameters</th>
-<th>Explanation</th>
-<th>Data source</th>
-<th>Related Function</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Farm</td>
-<td>Area</td>
-<td>Numerical, total area of the farm (ha)</td>
-<td>LiteFarm</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Farm</td>
-<td>Yield</td>
-<td>Numerical, the estimated yield (<span class="math inline">\(kg/ha\)</span>)</td>
-<td>LiteFarm</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Crop</td>
-<td>Moisture</td>
-<td>Moisture content of product (%)</td>
-<td>Holos default/External information（user defined）</td>
-<td>CropParameterManager -&gt; get_crop_parameter()</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Crop</td>
-<td><span class="math inline">\(N_p\)</span></td>
-<td>N concentration in the product (<span class="math inline">\(kg \ kg^{-1}\)</span>)</td>
-<td>Holos default/External information（user defined）</td>
-<td>CropParameterManager -&gt; get_crop_parameter()</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Crop</td>
-<td><span class="math inline">\(N_s\)</span></td>
-<td>N concentration in the straw (<span class="math inline">\(kg \ kg^{-1}\)</span>)</td>
-<td>Holos default/External information（user defined）</td>
-<td>CropParameterManager -&gt; get_crop_parameter()</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Crop</td>
-<td><span class="math inline">\(N_r\)</span></td>
-<td>N concentration in the roots (<span class="math inline">\(kg \ kg^{-1}\)</span>)</td>
-<td>Holos default/External information（user defined）</td>
-<td>CropParameterManager -&gt; get_crop_parameter()</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Crop</td>
-<td><span class="math inline">\(N_e\)</span></td>
-<td>N concentration in the extra root material (<span class="math inline">\(kg \ kg^{-1}\)</span>)</td>
-<td>Holos default/External information（user defined）</td>
-<td>CropParameterManager -&gt; get_crop_parameter()</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Crop</td>
-<td><span class="math inline">\(R_s\)</span></td>
-<td>Relative biomass allocation coefficient for straw</td>
-<td>Holos default/External information（user defined）</td>
-<td>CropParameterManager -&gt; get_crop_parameter()</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Crop</td>
-<td><span class="math inline">\(R_p\)</span></td>
-<td>Relative biomass allocation coefficient for product</td>
-<td>Holos default/External information（user defined）</td>
-<td>CropParameterManager -&gt; get_crop_parameter()</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Crop</td>
-<td><span class="math inline">\(R_r\)</span></td>
-<td>Relative biomass allocation coefficient for roots</td>
-<td>Holos default/External information（user defined）</td>
-<td>CropParameterManager -&gt; get_crop_parameter()</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Crop</td>
-<td><span class="math inline">\(R_e\)</span></td>
-<td>Relative biomass allocation coefficient for extra-root material</td>
-<td>Holos default/External information（user defined）</td>
-<td>CropParameterManager -&gt; get_crop_parameter()</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Crop group</td>
-<td><span class="math inline">\(C_{concentration}\)</span></td>
-<td>Carbon concentration of all plant parts (<span class="math inline">\(kg \ kg^{-1}\)</span>)</td>
-<td>Holos default/External information（user defined）</td>
-<td>CropGroupManager -&gt; get_crop_group()</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Crop group</td>
-<td><span class="math inline">\(S_p\)</span></td>
-<td>Percentage of product yield returned to soil</td>
-<td>Holos default/External information（user defined）</td>
-<td>CropGroupManager -&gt; get_crop_group()</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Crop group</td>
-<td><span class="math inline">\(S_s\)</span></td>
-<td>Percentage of straw returned to soils</td>
-<td>Holos default/External information（user defined）</td>
-<td>CropGroupManager -&gt; get_crop_group()</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Crop group</td>
-<td><span class="math inline">\(S_r\)</span></td>
-<td>Percentage of roots returned to soil</td>
-<td>Holos default/External information（user defined）</td>
-<td>CropGroupManager -&gt; get_crop_group()</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Climate &amp; soil</td>
-<td><span class="math inline">\(P_i\)</span></td>
-<td>Annual growing season precipitation (May – October), in ecodistrict “i” (mm)</td>
-<td>Holos default/NASA POWER</td>
-<td>ClimateSoilDataManager -&gt; get_climate_soil_data</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Climate &amp; soil</td>
-<td><span class="math inline">\(PE\)</span></td>
-<td>Growing season potential evapotranspiration, by ecodistrict (May – October)</td>
-<td>Holos default/NASA POWER</td>
-<td>ClimateSoilDataManager -&gt; get_climate_soil_data</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Climate &amp; soil</td>
-<td><span class="math inline">\(FR\_Topo_{i}\)</span></td>
-<td>Fraction of land occupied by lower portions of landscape</td>
-<td>Holos default</td>
-<td>ClimateSoilDataManager -&gt; get_climate_soil_data</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Modifiers / soil</td>
-<td><span class="math inline">\(RF\_TX_{i}\)</span></td>
-<td>Weighted modifier which provides a correction of the <span class="math inline">\(EF_{Topo}\)</span> in ecodistrict ‘‘i’’ based on the soil texture</td>
-<td>Holos default/HWSD 2.0</td>
-<td>based on source == “default”[] ModifierSoilTexture -&gt; get_rf_tx_modifier()/source == “external” [ExternalSoilTextureDataFetxher -&gt; get_soil_texture()]</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Modifiers</td>
-<td><span class="math inline">\(RF\_CS\)</span></td>
-<td>Reduction factor for Cropping System</td>
-<td>Holos default/External information(user-defined)</td>
-<td>Modifier -&gt; get_modifier()</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Modifiers</td>
-<td><span class="math inline">\(RF\_NS\)</span></td>
-<td>N source modifier RF_NS (SN = Synthetic Nitrogen; ON = Organic Nitrogen; CRN = Crop Residue Nitrogen)</td>
-<td>Holos default/External information(user-defined)</td>
-<td>Modifier -&gt; get_modifier()</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Modifiers</td>
-<td><span class="math inline">\(RF\_AM\)</span></td>
-<td>Reduction factor based on application method, only applicable to calculations of EF specific for SN</td>
-<td>Holos default/External information(user-defined)</td>
-<td>Modifier -&gt; get_modifier()</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Modifiers</td>
-<td><span class="math inline">\(RF\_Till\)</span></td>
-<td>Tillage modifier (Conservation or Conventional Tillage)</td>
-<td>Holos default/External information(user-defined)</td>
-<td>Modifier -&gt; get_modifier()</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p><strong>RF_AM</strong></p>
-<ul>
-<li>controlled_release</li>
-<li>nitrification_inhibitor</li>
-<li>urease_inhibitor</li>
-<li>both_inhibitors</li>
-<li>default</li>
-</ul>
-<p><strong>RF_CS</strong></p>
-<ul>
-<li>Annual</li>
-<li>Perennial</li>
-</ul>
-<p><strong>RF_NS</strong></p>
-<ul>
-<li>RF_NS_CRN</li>
-<li>RF_NS_SN</li>
-<li>RF_NS_ON</li>
-<li>RF_NC_Unknown</li>
-</ul>
-<p><strong>RF_Till</strong>(eastern/western)</p>
-<ul>
-<li>reduced_tillage</li>
-<li>no_tillage</li>
-<li>intensive_tillage</li>
-<li>unknown</li>
-</ul>
+<section id="goal" class="level1">
+<h1>Goal</h1>
+<p>Our project will work to enhance the existing emissions model, PyHolos, by incorporating plot-level interventions and increasing the dynamicity of the model parameters, with the hope of making the model more applicable to different regions. Throughout this process we aim to base our work in agroecological and agronomic principles, while also contemplating farmer accessibility and implementation. Specifically, we intend to achieve the following objectives:</p>
+<p>Update the existing PyHolos model to increase the dynamicity of the model equations, making sure to reinforce this work with agronomic principles. The initial focus will be on expanding across Canada, then to other regions of the world.</p>
+<p>Utilize experimental data from the UBC farm as a test bed for the PyHolos model to better inform model parameters. For instance, we hope to draw on the cause-and-effect relationships established through the numerous agricultural experiments conducted at the UBC Farm to help us identify the emission contributions generated by specific farming inputs and practices.</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -968,7 +447,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var filterRegex = new RegExp("https:\/\/sofia-bahmutsky\.github\.io\/Agroecology4Climate_2024\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }

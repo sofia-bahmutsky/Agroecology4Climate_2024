@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Variables – Climate Solution</title>
+<title>Timeline – Climate Solution</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -69,35 +69,6 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
@@ -142,7 +113,7 @@ window.Quarto = {
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="./timeline.html"> 
+    <a class="nav-link active" href="./timeline.html" aria-current="page"> 
 <span class="menu-text">Timeline</span></a>
   </li>  
   <li class="nav-item">
@@ -183,25 +154,15 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#ghg-emission-model-variables" id="toc-ghg-emission-model-variables" class="nav-link active" data-scroll-target="#ghg-emission-model-variables">GHG Emission Model Variables</a>
-  <ul class="collapse">
-  <li><a href="#crop" id="toc-crop" class="nav-link" data-scroll-target="#crop">Crop</a></li>
-  <li><a href="#climate" id="toc-climate" class="nav-link" data-scroll-target="#climate">Climate</a></li>
-  </ul></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Variables</h1>
+<h1 class="title">Timeline</h1>
 </div>
 
 
@@ -218,125 +179,9 @@ window.Quarto = {
 </header>
 
 
-<section id="ghg-emission-model-variables" class="level2">
-<h2 class="anchored" data-anchor-id="ghg-emission-model-variables">GHG Emission Model Variables</h2>
-<section id="crop" class="level3">
-<h3 class="anchored" data-anchor-id="crop">Crop</h3>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 16%">
-<col style="width: 13%">
-<col style="width: 8%">
-<col style="width: 23%">
-<col style="width: 22%">
-<col style="width: 14%">
-</colgroup>
-<thead>
-<tr class="header">
-<th><strong>Variable Name</strong></th>
-<th><strong>Description</strong></th>
-<th><strong>Units</strong></th>
-<th><strong>Associate Formula/Variables(if applicable)</strong></th>
-<th><strong>Region/Country Specific</strong></th>
-<th><strong>Data Source</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span class="math inline">\(C_{p\_to\_soil}\)</span></td>
-<td>Carbon input from product</td>
-<td>kg C/ha</td>
-<td><span class="math inline">\(Grain_N\)</span></td>
-<td>Common</td>
-<td>based on the crop type</td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(C_r\)</span></td>
-<td>Carbon input from root</td>
-<td>kg C/ha</td>
-<td><span class="math inline">\(Root_N\)</span></td>
-<td>Common</td>
-<td>based on the crop type</td>
-</tr>
-<tr class="odd">
-<td><span class="math inline">\(C_e\)</span></td>
-<td>Carbon input from extra-root material</td>
-<td>kg C/ha</td>
-<td><span class="math inline">\(Exudate_N\)</span></td>
-<td>Common</td>
-<td>based on the crop type</td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(C_s\)</span></td>
-<td>Carbon input from straw</td>
-<td>kg C/ha</td>
-<td><span class="math inline">\(Straw_N\)</span></td>
-<td>Common</td>
-<td>based on the crop type</td>
-</tr>
-<tr class="odd">
-<td><span class="math inline">\(C_p\)</span></td>
-<td>Plant carbon in agricultural product</td>
-<td>kg C/ha</td>
-<td><span class="math inline">\(C_r\)</span>,<span class="math inline">\(C_s\)</span>,<span class="math inline">\(C_e\)</span>,<span class="math inline">\(C_{p\_to\_soil}\)</span></td>
-<td>Common</td>
-<td>based on the crop type</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="climate" class="level3">
-<h3 class="anchored" data-anchor-id="climate">Climate</h3>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 16%">
-<col style="width: 13%">
-<col style="width: 8%">
-<col style="width: 23%">
-<col style="width: 22%">
-<col style="width: 14%">
-</colgroup>
-<thead>
-<tr class="header">
-<th><strong>Variable Name</strong></th>
-<th><strong>Description</strong></th>
-<th><strong>Units</strong></th>
-<th><strong>Associate Formula/Variables(if applicable)</strong></th>
-<th><strong>Region/Country Specific</strong></th>
-<th><strong>Data Source</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span class="math inline">\(EF_{{CT}_{P}}\)</span></td>
-<td>Ecodistrict-level emission factor of precipitation</td>
-<td><span class="math inline">\((kg&nbsp;N_2O-N)/&nbsp;(kg&nbsp;N)\)</span></td>
-<td><span class="math inline">\(EF\)</span></td>
-<td>Common</td>
-<td>based on the P and PE</td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(EF_{{CT}_{PE}}\)</span></td>
-<td>Ecodistrict-level emission factor of evapotranspiration</td>
-<td><span class="math inline">\((Kg&nbsp;N_2O-N)/&nbsp;(kg&nbsp;N)\)</span></td>
-<td><span class="math inline">\(EF\)</span></td>
-<td>Common</td>
-<td>based on the P and PE</td>
-</tr>
-<tr class="odd">
-<td><span class="math inline">\(EF_{TOPO}\)</span></td>
-<td><span class="math inline">\(𝑁_2𝑂\)</span> emission factor adjusted due to position in landscape and moisture regime</td>
-<td><span class="math inline">\(kg&nbsp;N_2O-N\)</span></td>
-<td><span class="math inline">\(EF\)</span></td>
-<td>Common</td>
-<td>based on the P and PE</td>
-</tr>
-</tbody>
-</table>
+<p>We can put our weekly meeting notes, Timeline!</p>
 
 
-</section>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -575,7 +420,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var filterRegex = new RegExp("https:\/\/sofia-bahmutsky\.github\.io\/Agroecology4Climate_2024\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
